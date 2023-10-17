@@ -22,7 +22,17 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#2b5797" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body>{children}</body>
+      <body>
+        <header className="h-[100px] flex-center">
+          <h1 className="logo">PHOTOBOOTH</h1>
+        </header>
+        <main>{children}</main>
+        <footer className="h-[200px] flex-center">
+          <div>
+            Created by <a href={'https://diveindeep.space/'}>diveindeep</a>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
