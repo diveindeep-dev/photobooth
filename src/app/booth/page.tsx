@@ -87,6 +87,7 @@ export default function Booth() {
 
   const capture = useCallback(
     (ref: React.MutableRefObject<any>) => {
+      if (ref === null) return;
       if (imgSrcs.length >= 8) return;
 
       const imageSrc = ref.current.getScreenshot();
