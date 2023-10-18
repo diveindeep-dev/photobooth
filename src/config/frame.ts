@@ -8,13 +8,13 @@ export const frameRatio: any = {
   wide: 2 / 3.15,
 };
 
-export const frameColors = [
-  'rose-300',
-  'indigo-300',
-  'blue-400',
-  'emerald-600',
-  'gray-600',
-  'slate-950',
+export const frameColors: Colors[] = [
+  'rose',
+  'indigo',
+  'blue',
+  'emerald',
+  'gray',
+  'slate',
 ];
 
 export const frameOrders: Orders[] = ['first', 'second', 'third', 'fourth'];

@@ -17,7 +17,7 @@ export default function Booth() {
   const frameType = searchParams.get('frame') || 'basic';
   const [imgSrcs, setImgSrcs] = useState<string[]>([]);
   const [isNext, setIsNext] = useState<boolean>(false);
-  const [pickedColor, setPickedColor] = useState<string>('slate-950');
+  const [pickedColor, setPickedColor] = useState<Colors>('slate');
   const [error, setError] = useState<string>('');
   const [currentOrder, setCurrentOrder] = useState<Orders | ''>('first');
   const [selected, setSelected] = useState<Cuts>({
@@ -57,7 +57,7 @@ export default function Booth() {
 
   const reset = () => {
     setCurrentOrder('first');
-    setPickedColor('slate-950');
+    setPickedColor('slate');
     setSelected({
       first: '',
       second: '',
