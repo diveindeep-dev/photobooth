@@ -15,7 +15,7 @@ export default function Palette({
             <div
               key={i}
               onClick={() => handleColor(color)}
-              className={`bg-[#${color}] w-[50px] h-[50px] m-1 rounded hover:cursor-pointer`}
+              className={`bg-${color} w-[50px] h-[50px] m-1 rounded hover:cursor-pointer`}
             />
           );
         })}

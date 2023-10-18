@@ -6,7 +6,7 @@ import today from '@/utils';
 interface FrameProps {
   type: string;
   color: string;
-  handlePosition: Dispatch<SetStateAction<Orders>>;
+  handlePosition: Dispatch<SetStateAction<Orders | ''>>;
   currentOrder: string;
   selected: Cuts;
 }
@@ -16,7 +16,7 @@ export default function Frame(props: FrameProps) {
   const photos = frameOrders.map((order: Orders, i: number) => {
     const isSelectedImg = selected[order];
     const isCurrent =
-      order === currentOrder ? 'border-orange-50' : 'border-stone-800';
+      order === currentOrder ? 'border-orange-50' : 'border-transparent';
     return (
       <div
         key={i}
@@ -30,7 +30,7 @@ export default function Frame(props: FrameProps) {
 
   return (
     <div
-      className={`relative flex flex-col bg-[#${color}] px-[15px] pt-[15px] frame-${type} overflow-hidden`}
+      className={`relative flex flex-col bg-${color} px-[15px] pt-[15px] frame-${type} overflow-hidden`}
     >
       <div className={`grid gap-[15px] frame-grid`}>{photos}</div>
       <div className="flex-center flex-col h-full text-orange-50">

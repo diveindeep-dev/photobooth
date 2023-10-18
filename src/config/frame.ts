@@ -9,11 +9,12 @@ export const frameRatio: any = {
 };
 
 export const frameColors = [
-  '007D52',
-  '0097FB',
-  '8F8B86',
-  '3A485C',
-  '000000',
+  'rose-300',
+  'indigo-300',
+  'blue-400',
+  'emerald-600',
+  'gray-600',
+  'slate-950',
 ];
 
 export const frameOrders: Orders[] = ['first', 'second', 'third', 'fourth'];
