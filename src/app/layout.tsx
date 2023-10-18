@@ -1,5 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Photobooth',
@@ -24,7 +25,9 @@ export default function RootLayout({
       </head>
       <body>
         <header className="h-[100px] flex-center">
-          <h1 className="logo">PHOTOBOOTH</h1>
+          <Link href={{ pathname: '/' }}>
+            <h1 className="logo">PHOTOBOOTH</h1>
+          </Link>
         </header>
         <main>{children}</main>
         <footer className="h-[200px] flex-center">
