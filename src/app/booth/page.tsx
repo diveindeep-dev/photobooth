@@ -8,7 +8,7 @@ import Mockup from '../_components/mockup';
 import Palette from '../_components/palette';
 import Frame from '../_components/frame';
 import { frameOrders } from '@/config/frame';
-import domtoimage from 'dom-to-image';
+import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 import today from '@/utils';
 
@@ -70,17 +70,14 @@ export default function Booth() {
     setCurrentOrder('');
     const savedImg = savedRef.current;
     if (savedImg) {
-      const option = {
-        width: savedImg.clientWidth * 2,
-        height: savedImg.clientHeight * 2,
-        style: {
-          transform: 'scale(2)',
-          'transform-origin': '0% 0%',
-        },
-      };
       (async () => {
-        const generate = await domtoimage.toBlob(savedImg, option);
-        saveAs(generate, `${today('file')}-4cuts.png`);
+        await html2canvas(savedImg);
+        const generate = await html2canvas(savedImg);
+        generate.toBlob((blob) => {
+          if (blob !== null) {
+            saveAs(blob, `${today('file')}-photobooth.png`);
+          }
+        });
       })();
     }
   };
