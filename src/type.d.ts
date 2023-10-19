@@ -5,3 +5,12 @@ type Cuts = {
 };
 
 type Colors = 'rose' | 'indigo' | 'blue' | 'emerald' | 'gray' | 'slate';
+
+interface Custom {
+  title: string;
+  folder: string;
+}
+
+interface Code {
+  [key: string]: Custom;
+}

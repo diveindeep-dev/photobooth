@@ -36,7 +36,7 @@ export default function Previews({
   });
 
   return (
-    <div className="flex flex-col p-[10px] w-full">
+    <div className="flex flex-col w-full">
       <div className={`previews previews-${frameType}`}>
         {preview}
         {blankBox}
