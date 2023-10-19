@@ -1,3 +1,235 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'BDStreet';
+  src: url(../../public/assets/BDStreetSignSans-SlightlyRaised.otf);
+}
+
+@layer base {
+  :root {
+    --color-primary: #082f49;
+    --color-bg: #fff7ed;
+  }
+
+  input {
+    @apply focus:outline-none bg-transparent;
+  }
+  html {
+    @apply bg-orange-50;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+}
+
+@layer components {
+  .logo {
+    @apply font-[BDStreet] text-3xl;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .body-container {
+    @apply mx-auto max-w-screen-xl;
+  }
+
+  .menu {
+    @apply flex flex-col justify-between p-[20px] overflow-hidden hover:cursor-pointer border-l  border-sky-950 hover:bg-sky-950 hover:text-orange-50;
+  }
+
+  .custom {
+    display: grid;
+    grid-template-areas:
+      'title title'
+      'camera camera'
+      'previews frame'
+      'buttons buttons';
+
+    @media (min-width: 768px) {
+      grid-template-areas:
+        'title title'
+        'camera camera'
+        'previews frame'
+        'buttons frame';
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 3fr 1.2fr;
+      grid-template-areas:
+        'title camera frame'
+        'title previews frame'
+        'title buttons frame';
+    }
+
+    .camera-basic {
+      flex-direction: column;
+    }
+
+    .frame-basic {
+      @apply aspect-[1/2.7];
+      .frame-grid {
+        grid-template-rows: repeat(4, 1fr);
+      }
+      .frame-aspect {
+        @apply aspect-[3/1.8];
+      }
+    }
+  }
+
+  .booth {
+    @apply grid lg:grid-cols-[0.5fr_3fr_0.5fr] lg:grid-rows-1;
+
+    .booth-basic {
+      @apply flex flex-col;
+
+      .camera-basic {
+        @apply flex-col md:flex-row;
+        & > video {
+          max-width: 650px;
+        }
+      }
+    }
+
+    .booth-wide {
+      @apply flex flex-col md:flex md:flex-row md:justify-between;
+
+      .camera-wide {
+        flex-direction: column;
+      }
+    }
+
+    .frame-basic {
+      @apply aspect-[1/2.7];
+      .frame-grid {
+        grid-template-rows: repeat(4, 1fr);
+      }
+      .frame-aspect {
+        @apply aspect-[3/1.8];
+      }
+    }
+
+    .frame-wide {
+      @apply aspect-[2/3.15];
+      .frame-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+      }
+      .frame-aspect {
+        @apply aspect-[0.75/1];
+      }
+    }
+  }
+
+  .previews {
+    @apply grid gap-[10px] place-items-center grid-cols-[1fr_1fr] grid-rows-4;
+
+    &.previews-custom {
+      @apply grid-cols-1 md:grid-cols-2 md:grid-rows-2 lg:grid-cols-4 lg:grid-rows-2 p-[10px];
+      & > div,
+      img {
+        width: 100%;
+      }
+      .pic-aspect {
+        @apply aspect-[3/1.8];
+      }
+    }
+
+    &.previews-basic {
+      @apply md:grid-cols-4 md:grid-rows-2 px-[10px] py-[20px];
+      & > div,
+      img {
+        width: 100%;
+      }
+      .pic-aspect {
+        @apply aspect-[3/1.8];
+      }
+    }
+
+    &.previews-wide {
+      @apply px-[30px] mx-auto;
+      & > div,
+      img {
+        height: 190px;
+      }
+      .pic-aspect {
+        @apply aspect-[0.75/1];
+      }
+    }
+
+    &.previews-set-basic {
+      @apply px-[10px] py-[20px];
+      & > div,
+      img {
+        width: 100%;
+      }
+      .pic-aspect {
+        @apply aspect-[3/1.8];
+      }
+    }
+
+    &.previews-set-wide {
+      @apply px-[30px] mx-auto;
+      & > div,
+      img {
+        height: 190px;
+      }
+      .pic-aspect {
+        @apply aspect-[0.75/1];
+      }
+    }
+  }
+}
+
+.mockup-basic {
+  height: 600px;
+  grid-gap: 15px;
+  padding: 15px;
+  width: 200px;
+  grid-template-rows: 1fr 1fr 1fr 1fr 0.7fr;
+}
+
+.mockup-wide {
+  height: 600px;
+  grid-gap: 15px;
+  padding: 15px;
+  width: 400px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 0.3fr;
+}
+
+.shutter {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: #000000 0px 0px 0px 2px, var(--color-bg) 0px 0px 0px 2px,
+    #000000 0px 0px 0px 3px, var(--color-bg) 0px 0px 0px 10px;
+  &:hover {
+    width: 44px;
+    height: 44px;
+    box-shadow: #000000 0px 0px 0px 2px, var(--color-bg) 0px 0px 0px 2px,
+      #000000 0px 0px 0px 6px, var(--color-bg) 0px 0px 0px 13px;
+    transition: all 0.1s ease-in-out;
+  }
+}
+
+.area-frame {
+  grid-area: frame;
+  padding: 5px;
+}
+
+.area-title {
+  grid-area: title;
+}
+.area-camera {
+  grid-area: camera;
+}
+.area-previews {
+  grid-area: previews;
+}
+.area-buttons {
+  grid-area: buttons;
+}
