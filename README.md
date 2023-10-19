@@ -20,7 +20,7 @@
 ### Client
 
 ```javascript
-git clone https://github.com/diveindeep-dev/photobooth
+git clone https://github.com/diveindeep-dev/photobooth.git
 cd photobooth
 yarn install
 yarn dev
